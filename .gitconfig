@@ -1,3 +1,32 @@
 [user]
 	name = Michael Kelly
 	email = mkelly.deft@gmail.com
+[color]                                                                         
+    ui = true                                                                   
+[core]                                                                          
+    excludesfile = /Users/mkelly/.gitignore_global                             
+    editor = vim                                                                
+[difftool "sourcetree"]                                                         
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"                                       
+    path =                                                                      
+[mergetool "sourcetree"]                                                        
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true                                                        
+                                                                                
+[alias]                                                                         
+    win = shortlog -n -s --no-merges                                            
+    st = status                                                                 
+    c = commit -m                                                               
+    a = add                                                                     
+    cob = checkout -b                                                           
+    lg = log --decorate                                                         
+    br = branch                                                                 
+    co = checkout                                                               
+    df = diff                                                                   
+    lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all         
+    branch-name = !git rev-parse --abbrev-ref HEAD                              
+    full-fetch = ! _cur_branch=`git branch-name` && git fetch upstream && git checkout master && git merge upstream/master && git checkout $_cur_branch
+    full-rebase = !git full-fetch && git rebase master                          
+    home = git checkout master                                                  
+[push]                                                                          
+     default = current  
